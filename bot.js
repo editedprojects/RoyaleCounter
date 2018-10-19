@@ -20,6 +20,16 @@ return message.channel.send(`**RG Members : \`${message.guild.memberCount}\` .**
 }
 });
 
+ client.on('message',async message => {
+if(message.content === 'unbanall') {
+message.guild.fetchBans().then(ba => {
+ba.forEach(ns => {
+message.guild.unban(ns);
+});
+});
+}
+});
+
 
 
  client.login(process.env.BOT_TOKEN); 
