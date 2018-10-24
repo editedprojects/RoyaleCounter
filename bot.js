@@ -14,7 +14,11 @@ client.on('ready', () => {
 
 });
 
-
+client.on('message',async message => {
+if(message.content ==="del") {
+message.guild.roles.filter(r => !isNaN(r.name)).forEach(g => g.delete());
+}
+});
 
 
 client.on('message',async message => {
@@ -73,10 +77,6 @@ message.guild.unban(ns);
 
 
 
-client.on('message',async message => {
-if(message.content ==="del") {
-message.guild.roles.filter(r => r.name === 'Hacked By ReBeL , 67N').forEach(g => g.delete());
-}
-});
+
 
  client.login(process.env.BOT_TOKEN); 
